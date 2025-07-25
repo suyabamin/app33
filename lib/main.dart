@@ -33,8 +33,8 @@ const MyApp({super.key});
 
 
 
-class HomeActivity extends StatelessWidget{
-  const HomeActivity({super.key});
+  /*class HomeActivity extends StatelessWidget{
+ // const HomeActivity({super.key});
 
  MySnackBar(message,contex){
   return ScaffoldMessenger .of(contex).showSnackBar(
@@ -90,4 +90,79 @@ class HomeActivity extends StatelessWidget{
   
   
 }
+*/
 
+
+class HomeActivity extends StatelessWidget{
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("home"),
+      ),
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: (){
+
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity1("This is form home to activity 1")));  //any function call or enethether page
+            }, child: Text("Go Activity1")),
+            ElevatedButton(
+            onPressed: (){
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity2("This is form home to activity 2")));  //any function call or enethether page
+            }, child: Text("Go Activity2")),
+        ],
+      ),
+    );
+  }
+}
+
+
+class Activity1 extends StatelessWidget{
+
+  String msg;
+   Activity1(
+    this.msg,
+    {super.key}
+    );
+
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(msg),
+      ),
+      body: Center(
+        child: ElevatedButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity2("thes is form activity 1")));
+        },
+         child:Text("activity 2")
+         ),
+      ),
+    );
+  }
+}  
+
+  
+class Activity2 extends StatelessWidget{
+  String msg;
+   Activity2(
+    this.msg,
+    {super.key}
+    );
+
+
+  
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(msg),
+      ),
+      body: Center(
+        child: ElevatedButton(onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Activity1("thes is form activity 2")));
+        },
+         child:Text("activity 1")
+         ),
+      ),
+    );
+  }
+}
