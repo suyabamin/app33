@@ -92,7 +92,7 @@ const MyApp({super.key});
 }
 */
 
-
+//home page to other page with parameter
 class HomeActivity extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
